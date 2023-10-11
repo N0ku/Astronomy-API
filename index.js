@@ -12,8 +12,10 @@ const PORT = process.env.PORT || 5050;
 
 // Routes
 const eventsRoutes = require("./routes/EventsRoutes");
+const observablesRoutes = require("./routes/ObservablesRoutes");
 
 app.use("/events", eventsRoutes());
+app.use("/observables", observablesRoutes());
 
 
 const mongoURI = `${process.env.DATABASE_URL}${process.env.DATABASE_NAME}`;
