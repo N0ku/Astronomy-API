@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const { getEvents, getEvent } = require("../controllers/observablesController");
+const { getObservable,getObservables } = require("../controllers/observablesController");
 
 module.exports = function () {
-  router.get("/", getEvents);
-  router.get("/:id", getEvent);
+  router.get("/", getObservables);
+  router.get("/:id", getObservable);
 
   return router;
 };
