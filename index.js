@@ -1,6 +1,6 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
+const express = require("express");
+const app = express();
+const cors = require("cors");
 const connectDb = require("./db/connect");
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -17,7 +17,6 @@ const observablesRoutes = require("./routes/ObservablesRoutes");
 app.use("/events", eventsRoutes());
 app.use("/observables", observablesRoutes());
 
-
 const mongoURI = `${process.env.DATABASE_URL}${process.env.DATABASE_NAME}`;
 
 connectDb(mongoURI);
@@ -25,7 +24,7 @@ connectDb(mongoURI);
 const database = mongoose.connection;
 
 database.on("error", (error) => {
-  console.log(error);
+  console.error(error);
 });
 database.once("open", () => {
   console.log("Database Connected");
